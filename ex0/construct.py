@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys
+import os
 
 
 def construct() -> None:
@@ -17,7 +18,7 @@ def construct() -> None:
     else:
         print("MATRIX STATUS: Welcome to the construct\n")
         print(f"Current Python: {sys.executable}")
-        print("Virtual Environment: matrix_env")
+        print(f"Virtual Environment: {os.path.basename(sys.prefix)}")
         print(f"Environment Path: {sys.prefix}\n")
         print("SUCCESS: You're in an isolated environment!")
         print("Safe to install packages without affecting")
@@ -29,7 +30,4 @@ def construct() -> None:
 
 
 if __name__ == "__main__":
-    try:
-        construct()
-    except Exception as e:
-        print(e)
+    construct()
