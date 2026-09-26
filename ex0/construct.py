@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import os
+import site
 
 
 def construct() -> None:
@@ -15,6 +16,8 @@ def construct() -> None:
         print("source matrix_env/bin/activate # On Unix")
         print("matrix_env\\Scripts\\activate # On Windows\n")
         print("Then run this program again.")
+        # site_packages = site.getsitepackages()[0]
+        # print(site_packages)
     else:
         print("MATRIX STATUS: Welcome to the construct\n")
         print(f"Current Python: {sys.executable}")
@@ -24,8 +27,9 @@ def construct() -> None:
         print("Safe to install packages without affecting")
         print("the global system.\n")
         print("Package installation path:")
-        version = f"{sys.version_info.major}.{sys.version_info.minor}"
-        site_packages = f"{sys.prefix}/lib/python{version}/site-packages"
+        site_packages = site.getsitepackages()[0]
+        # version = f"{sys.version_info.major}.{sys.version_info.minor}"
+        # site_packages = f"{sys.prefix}/lib/python{version}/site-packages"
         print(site_packages)
 
 

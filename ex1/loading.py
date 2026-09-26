@@ -1,6 +1,9 @@
 import importlib
-import pandas
+import flake8
 
-module = importlib.import_module()
+# module = importlib.import_module()
 
-print(module)
+
+a = importlib.import_module("flake8")
+# print(hasattr(importlib, "flake8"))
+print(a)
