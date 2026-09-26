@@ -5,12 +5,11 @@ description = "Loading Programs"
 authors = [
     {name = "andjajas"}
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.10"
 dependencies = [
-    "pandas (>=3.0.6,<4.0.0)",
-    "requests (>=2.34.2,<3.0.0)",
-    "matplotlib (>=3.11.2,<4.0.0)",
-    "numpy (>=2.5.3,<3.0.0)"
+    "pandas (^3.0.6)",
+    "matplotlib (^3.11.2)",
+    "numpy (^2.5.3)"
 ]
 
 
