@@ -32,27 +32,41 @@ def loading() -> None:
     dependencies_ok: bool = check_dependencies()
     if not dependencies_ok:
         print("dependencies not found: install using pip or Poetry:")
-        print(" for pip:")
+        print(" # for pip:")
         print("     pip install -r requirements.txt")
-        print(" for Poetry:")
+        print(" # then to run the program after pip install:")
+        print("     python3 loading.py")
+        print(" # for Poetry:")
         print("     poetry install")
-        print("Then run this program again.")
+        print(" # then to run the program with poetry:")
+        print("     poetry run python3 loading.py")
     else:
         analyze_matrix()
 
 
 def analyze_matrix() -> None:
     import numpy as np
-    data = np.random.randint(33, 127, size=10)
-    print(data)
     import pandas as pd
-    df = pd.DataFrame({"codepoint": data})
-    print(df)
-    df["char"] = df["codepoint"].apply(chr)
-    print(df)
     import matplotlib.pyplot as plt
-    plt.hist(df["codepoint"], bins=20)
+    plt.style.use("dark_background")
+    print("\nAnalyzing Matrix data...")
+    print("Processing 1000 data points...")
+    x = np.random.randint(42, 127, size=1000)
+    y = np.random.randint(33, 127, size=1000)
+    # create table with 1000 rows and 2 columns (x and y)
+    df = pd.DataFrame({"x": x, "y": y})
+    # add a third column char
+    df["char"] = df["y"].apply(chr)
+    sample = df.sample(n=442)
+    print("Generating visualization...\n")
+    for px, py, ch in zip(sample["x"], sample["y"], sample["char"]):
+        plt.text(px, py, ch, color="#00ff41")
+    plt.xlim(42, 127)
+    plt.ylim(33, 127)
     plt.savefig("matrix_analysis.png")
+    print("Analysis complete!")
+    print("Results saved to: matrix_analysis.png")
+
 
 if __name__ == "__main__":
     loading()

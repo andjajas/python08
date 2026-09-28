@@ -28,6 +28,7 @@ def construct() -> None:
         print("the global system.\n")
         print("Package installation path:")
         site_packages = site.getsitepackages()[0]
+        # site_packages = sys.path[-1]
         # version = f"{sys.version_info.major}.{sys.version_info.minor}"
         # site_packages = f"{sys.prefix}/lib/python{version}/site-packages"
         print(site_packages)
