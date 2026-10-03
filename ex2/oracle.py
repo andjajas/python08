@@ -3,13 +3,13 @@
 # do it inside a venv to keep my global clean
 # or if using a requirements.txt file: python-dotenv==1.0.1
 try:
-	from dotenv import load_dotenv  # type: ignore
-	load_dotenv()
-except ModuleNotFoundError as e:
+    from dotenv import load_dotenv  # type: ignore
+
+    load_dotenv()
+except ModuleNotFoundError:
     print("couldn't load load_dotenv from dotenv")
     print("requires (in venv): pip install python-dotenv")
 import os
-
 
 VALID_MODES = ("development", "production")
 
